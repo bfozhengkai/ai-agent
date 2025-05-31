@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/agent")
-public class DeepSeekController{
+public class DeepSeekController {
     private final DashScopeChatModel chatModel;
 
     public DeepSeekController(DashScopeChatModel chatModel) {

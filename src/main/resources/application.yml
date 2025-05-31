@@ -21,7 +21,7 @@ springdoc:
     - group: 'default'
       paths-to-match: '/**'
       packages-to-scan: com.kaisiaiagent.demo.controller
-# knife4j???????????????
+# knife4j
 knife4j:
   enable: true
   setting:
