@@ -1,5 +1,3 @@
-
-
 package com.kaisiaiagent.demo.advisor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -9,7 +7,6 @@ import reactor.core.publisher.Flux;
 
 /**
  * 自定义 advisor: 日志输出
- *
  */
 @Slf4j
 public class MyLoggerAdvisor implements CallAroundAdvisor, StreamAroundAdvisor {
