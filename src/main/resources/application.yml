@@ -8,8 +8,6 @@ server:
   servlet:
     context-path: /api
 
-# AIzaSyDeJn4PMvGsEc9rmWF8MhjLPOe7PTODy9s
-# springdoc-openapi????
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
