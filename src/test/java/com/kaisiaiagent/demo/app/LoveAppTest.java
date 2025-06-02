@@ -1,5 +1,6 @@
 package com.kaisiaiagent.demo.app;
 
+import com.kaisiaiagent.demo.model.LoveReport;
 import jakarta.annotation.Resource;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -28,5 +29,15 @@ class LoveAppTest {
         message = "你好，问一下我的另一半叫什么名字,我刚刚跟你说过";
         content = loveApp.doChat(message, chatId);
         Assertions.assertNotNull(content);
+    }
+
+    @Test
+    void testDoChatWithReport() {
+        String chatId = UUID.randomUUID().toString();
+
+        //第一轮
+        String message = "你好，我是zks, 我想让另一半更爱我, 但我不知道怎么做.";
+        LoveReport loveReport = loveApp.doChatWithReport(message, chatId);
+        Assertions.assertNotNull(loveReport);
     }
 }

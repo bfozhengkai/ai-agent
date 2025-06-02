@@ -46,11 +46,6 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-ai</artifactId>
-            <version>5.8.38</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.xiaoymin</groupId>
             <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
             <version>4.4.0</version>
@@ -66,10 +61,29 @@
             <!-- 请将 'the-latest-version' 替换为最新版本号：https://mvnrepository.com/artifact/com.alibaba/dashscope-sdk-java -->
             <version>2.20.2</version>
         </dependency>
+
         <dependency>
             <groupId>com.alibaba.cloud.ai</groupId>
             <artifactId>spring-ai-alibaba-starter</artifactId>
             <version>1.0.0-M6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-ai</artifactId>
+            <version>5.8.38</version>
+        </dependency>
+        <!--支持结构化输出-->
+        <dependency>
+            <groupId>com.github.victools</groupId>
+            <artifactId>jsonschema-generator</artifactId>
+            <version>4.38.0</version>
+        </dependency>
+        <!--        高性能序列化库-->
+        <dependency>
+            <groupId>com.esotericsoftware</groupId>
+            <artifactId>kryo</artifactId>
+            <version>5.6.2</version>
         </dependency>
     </dependencies>
 
