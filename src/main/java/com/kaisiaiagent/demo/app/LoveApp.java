@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.MessageChatMemoryAdvisor;
 import org.springframework.ai.chat.client.advisor.QuestionAnswerAdvisor;
+import org.springframework.ai.chat.client.advisor.api.Advisor;
 import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.ai.chat.memory.InMemoryChatMemory;
 import org.springframework.ai.chat.model.ChatModel;
@@ -87,8 +88,11 @@ public class LoveApp {
         return loveReport;
     }
 
+//    @Resource
+//    private VectorStore loveAppVectorsStore;
+
     @Resource
-    private VectorStore loveAppVectorsStore;
+    private Advisor loveAppRagCloudAdvisor;
 
     public String doChatWithRag(String message, String chatId) {
         ChatResponse chatResponse = chatClient.prompt()
@@ -96,7 +100,8 @@ public class LoveApp {
                 .advisors(spec -> spec.param(CHAT_MEMORY_CONVERSATION_ID_KEY, chatId)
                         .param(CHAT_MEMORY_RETRIEVE_SIZE_KEY, 10))
                 .advisors(new MyLoggerAdvisor())
-                .advisors(new QuestionAnswerAdvisor(loveAppVectorsStore))
+                .advisors(loveAppRagCloudAdvisor)
+//                .advisors(new QuestionAnswerAdvisor(loveAppVectorsStore))
                 .call()
                 .chatResponse();
         String content = chatResponse.getResult().getOutput().getText();
