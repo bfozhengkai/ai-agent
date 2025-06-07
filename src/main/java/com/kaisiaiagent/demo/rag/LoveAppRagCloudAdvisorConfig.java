@@ -29,5 +29,4 @@ public class LoveAppRagCloudAdvisorConfig {
                 .documentRetriever(dashScopeDocumentRetriever)
                 .build();
     }
-
 }
