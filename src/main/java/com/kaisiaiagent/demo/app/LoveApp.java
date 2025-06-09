@@ -26,7 +26,7 @@ public class LoveApp {
     public LoveApp(ChatModel dashscopeChatModel) {
 
         ChatMemory chatMemory = new InMemoryChatMemory();
-        chatClient  = ChatClient.builder(dashscopeChatModel)
+        chatClient = ChatClient.builder(dashscopeChatModel)
                 .defaultSystem(SYSTEM_PROMPT)
                 .defaultAdvisors(
                         new MessageChatMemoryAdvisor(chatMemory)
@@ -36,6 +36,7 @@ public class LoveApp {
 
     /**
      * AI 基础对话(支持多轮对话)
+     *
      * @param message
      * @param chatId
      * @return
