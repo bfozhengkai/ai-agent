@@ -13,7 +13,6 @@ class LoveAppTest {
 
     @Resource
     private LoveApp loveApp;
-
     @Test
     void testChat() {
         String chatId = UUID.randomUUID().toString();

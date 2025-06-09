@@ -27,7 +27,7 @@ public class LoveAppDocumentLoaderTest {
     @Test
     void testLoadMarkdownsWhenNoMarkdownFilesPresent() throws IOException {
         // Arrange
-        when(resourcePatternResolver.getResources("classpath: documents/*.md"))
+        when(resourcePatternResolver.getResources("classpath:documents/*.md"))
                 .thenReturn(new Resource[]{});
 
         // Act
@@ -35,13 +35,13 @@ public class LoveAppDocumentLoaderTest {
 
         // Assert
         assertEquals(0, result.size());
-        verify(resourcePatternResolver, times(1)).getResources("classpath: documents/*.md");
+        verify(resourcePatternResolver, times(1)).getResources("classpath:documents/*.md");
     }
 
     @Test
     void testLoadMarkdownsWhenIOExceptionOccurs() throws IOException {
         // Arrange
-        when(resourcePatternResolver.getResources("classpath: documents/*.md"))
+        when(resourcePatternResolver.getResources("classpath:documents/*.md"))
                 .thenThrow(new IOException("File not found"));
 
         // Act
@@ -49,6 +49,6 @@ public class LoveAppDocumentLoaderTest {
 
         // Assert
         assertEquals(0, result.size());
-        verify(resourcePatternResolver, times(1)).getResources("classpath: documents/*.md");
+        verify(resourcePatternResolver, times(1)).getResources("classpath:documents/*.md");
     }
 }

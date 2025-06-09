@@ -9,12 +9,14 @@ import com.alibaba.dashscope.exception.ApiException;
 import com.alibaba.dashscope.exception.InputRequiredException;
 import com.alibaba.dashscope.exception.NoApiKeyException;
 import com.kaisiaiagent.demo.demo.invoke.utils.ConfigUtils;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Arrays;
 
 /**
  * 阿里云 demo1
  */
+@Slf4j
 public class SdkAiInvoke {
 
     private static final String apiKey = ConfigUtils.loadApiKeyFromConfig();
@@ -44,10 +46,10 @@ public class SdkAiInvoke {
     public static void main(String[] args) {
         try {
             GenerationResult result = callWithMessage();
-            System.out.println(result.getOutput().getChoices().get(0).getMessage().getContent());
+            log.info(result.getOutput().getChoices().get(0).getMessage().getContent());
         } catch (ApiException | NoApiKeyException | InputRequiredException e) {
-            System.err.println("错误信息：" + e.getMessage());
-            System.out.println("请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code");
+            log.error("错误信息：" + e.getMessage());
+            log.info("请参考文档：https://help.aliyun.com/zh/model-studio/developer-reference/error-code");
         }
         System.exit(0);
     }
