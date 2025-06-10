@@ -106,6 +106,12 @@
             <artifactId>spring-ai-markdown-document-reader</artifactId>
             <version>1.0.0-M6</version>
         </dependency>
+<!--        PGVector 向量存储-->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
+            <version>1.0.0-M7</version>
+        </dependency>
     </dependencies>
 
     <build>
