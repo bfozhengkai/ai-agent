@@ -52,7 +52,6 @@ public class LoveApp {
 
     /**
      * AI 基础对话(支持多轮对话)
-     *
      * @param message
      * @param chatId
      * @return
@@ -87,9 +86,6 @@ public class LoveApp {
         log.info("loveReport: {}", loveReport);
         return loveReport;
     }
-
-    @Resource
-    private VectorStore loveAppVectorsStore;
 
     @Resource
     private Advisor loveAppRagCloudAdvisor;

@@ -3,6 +3,17 @@ spring:
     name: demo
   profiles:
     active: local
+  datasource:
+    url: jdbc:postgresql://rm-cn-g4t4asx0u0009r0o.rwlb.rds.aliyuncs.com:5432/ai_agent_database_1
+    username: my_user
+  ai:
+    vectorstore:
+      pgvector:
+      index-type: HNSW
+      distance-type: COSINE_DISTANCE
+      dimensions: 1536
+      max-document-batch-size: 10000
+
 server:
   port: 8123
   servlet:
@@ -24,7 +35,7 @@ knife4j:
   enable: true
   setting:
     language: zh_cn
-
+# youtube ducument reader config
 youtube:
   video:
     url: ""
