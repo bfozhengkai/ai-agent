@@ -16,11 +16,15 @@ public class LoveAppVectorStoreConfig {
     @Resource
     private LoveAppDocumentLoader loveAppDocumentLoader;
 
-    //@Bean
+    @Resource
+    private KeywordEnricher keywordEnricher;
+
+    @Bean
     VectorStore loveAppVectorStore(EmbeddingModel dashboardEmbeddingModel) {
         SimpleVectorStore simpleVectorStore = SimpleVectorStore.builder(dashboardEmbeddingModel).build();
         List<Document> documents = loveAppDocumentLoader.loadMarkdowns();
-        simpleVectorStore.add(documents);
+        List<Document> enrichedDocuments = keywordEnricher.enrichDocuments(documents);
+        simpleVectorStore.add(enrichedDocuments);
         return simpleVectorStore;
     }
 }
