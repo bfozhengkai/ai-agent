@@ -71,9 +71,9 @@ public class LoveApp {
         String fileDir = System.getProperty("user.dir") + "/tmp/chat-memory";
         //ChatMemory chatMemory = new FileBaseChatMemory(fileDir);
         //初始化基于内存的聊天
-        //ChatMemory chatMemory = new InMemoryChatMemory();
+        ChatMemory chatMemory = new InMemoryChatMemory();
         //基於database的聊天
-        ChatMemory chatMemory = new DatabaseChatMemory(createJdbcTemplate(databaseUrl, databaseUsername, databasePassword));
+        //ChatMemory chatMemory = new DatabaseChatMemory(createJdbcTemplate(databaseUrl, databaseUsername, databasePassword));
         chatClient = ChatClient.builder(dashscopeChatModel)
                 .defaultSystem(SYSTEM_PROMPT)
                 .defaultAdvisors(

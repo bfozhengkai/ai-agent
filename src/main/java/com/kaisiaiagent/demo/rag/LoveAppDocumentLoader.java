@@ -30,11 +30,13 @@ public class LoveAppDocumentLoader {
             Resource[] resources = resourcePatternResolver.getResources("classpath:documents/*.md");
             for (Resource resource : resources) {
                 String fileName = resource.getFilename();
+                String status = fileName.substring(fileName.length()-6, fileName.length()-4);
                 MarkdownDocumentReaderConfig config = MarkdownDocumentReaderConfig.builder()
                         .withHorizontalRuleCreateDocument(true)
                         .withIncludeCodeBlock(false)
                         .withIncludeBlockquote(false)
-                        .withAdditionalMetadata("filename", "code.md")
+                        .withAdditionalMetadata("filename", fileName)
+                        .withAdditionalMetadata("status", status)
                         .build();
                 MarkdownDocumentReader markdownDocumentReader = new MarkdownDocumentReader(resource, config);
                 allDocuments.addAll(markdownDocumentReader.get());
